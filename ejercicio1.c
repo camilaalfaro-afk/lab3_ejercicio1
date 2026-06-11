@@ -1,10 +1,3 @@
-/*
- * registro.c
- * Registro de accesos de usuarios usando exclusivamente syscalls.
- * Compilar: gcc -o registro registro.c
- * Uso:      ./registro <nombre_usuario>
- */
-
 #include <unistd.h>
 #include <sys/syscall.h>
 #include <sys/types.h>
