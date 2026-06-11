@@ -77,17 +77,10 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    /* 1. Obtener tiempo actual via SYS_time */
     long now = syscall(SYS_time, 0);
-
-    /* 2. Convertir timestamp a fecha/hora */
     int year, month, day, hour, min, sec;
     epoch_to_datetime(now, &year, &month, &day, &hour, &min, &sec);
-
-    /* 3. Obtener PID via SYS_getpid */
     long pid = syscall(SYS_getpid);
-
-    /* 4. Construir la linea: [YYYY-MM-DD HH:MM:SS] Usuario: <nombre> (PID=XXXX)\n */
     char num_buf[12];
     char line[256];
     long pos = 0;
@@ -133,7 +126,6 @@ int main(int argc, char *argv[]) {
     line[pos++] = ')';
     line[pos++] = '\n';
 
-    /* 5. Abrir/crear el archivo con SYS_open */
     int fd = (int)syscall(SYS_open,
                           "access_log.txt",
                           O_WRONLY | O_CREAT | O_APPEND,
@@ -142,14 +134,11 @@ int main(int argc, char *argv[]) {
         write_str(2, "Error: no se pudo abrir access_log.txt\n");
         return 1;
     }
-
-    /* 6. Escribir con SYS_write */
     syscall(SYS_write, fd, line, pos);
-
-    /* 7. Cerrar con SYS_close */
     syscall(SYS_close, fd);
 
     write_str(1, "Registro actualizado en access_log.txt\n");
 
     return 0;
 }
+
