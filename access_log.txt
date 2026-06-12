@@ -1,2 +1,5 @@
-[2026-06-11 15:04:20] Usuario: ana (PID=38242)
-[2026-06-11 15:10:42] Usuario: ana (PID=38625)
+[2026-06-11 23:01:46] Usuario: ana (PID=1105)
+[2026-06-11 23:01:46] Usuario: carlos (PID=1106)
+[2026-06-11 23:02:00] Usuario: ana (PID=1116)
+[2026-06-11 23:05:26] Usuario: ana (PID=1191)
+[2026-06-12 00:11:38] Usuario: ana (PID=1971)
